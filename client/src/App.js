@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 // SERVICES
-import userService from './services/userService';
+import userService from "./services/userService";
 
 function App() {
   const [users, setusers] = useState(null);
@@ -15,6 +15,7 @@ function App() {
   const getusers = async () => {
     let res = await userService.getAll();
     setusers(res);
+    console.log(res);
   };
 
   const renderUser = (user) => {
