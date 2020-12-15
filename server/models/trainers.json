@@ -1,0 +1,19 @@
+[
+    {
+        "shoeName": "Singles Day",
+        "shoeBrand": "Air Jordan",
+        "shoeType": "Air Jordan 6",
+        "releaseDate": "25/11/2020",
+        "tags": "Black, Burgundy, Jordan, 6",
+        "price": {
+            "retailPrice": {
+                "amount": 170,
+                "currencyCode": "GBP"
+            },
+            "resalePrice": {
+                "amount": 300,
+                "currencyCode": "GBP"
+            }
+        }
+    }
+]

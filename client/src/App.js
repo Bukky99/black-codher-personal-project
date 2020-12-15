@@ -1,46 +1,47 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { BrowserRouter, Route } from "react-router-dom";
+import "./App.css";
+import Header from "./Components/Header";
+import Trainer from "./Components/Trainer";
+import WishList from "./Pages/WishList";
+import Login from "./Pages/Login";
 
 // SERVICES
-import userService from "./services/userService";
 
-function App() {
-  const [users, setusers] = useState(null);
-
-  useEffect(() => {
-    if (!users) {
-      getusers();
-    }
-  });
-
-  const getusers = async () => {
-    let res = await userService.getAll();
-    setusers(res);
-    console.log(res);
-  };
-
-  const renderUser = (user) => {
-    return (
-      <li key={user._id}>
-        <h3>
-          {`${user.first_name} 
-          ${user.last_name}`}
-        </h3>
-        <p>{user.location}</p>
-      </li>
-    );
-  };
-
+const App = () => {
+  const [name, setName] = useState("Bukky");
   return (
-    <div>
-      <ul>
-        {users && users.length > 0 ? (
-          users.map((user) => renderUser(user))
-        ) : (
-          <p>No users found</p>
+    <BrowserRouter>
+      <Route
+        path="/"
+        render={() => (
+          <React.Fragment>
+            <Header />
+          </React.Fragment>
         )}
-      </ul>
-    </div>
+      />
+
+      <Route
+        exact
+        path="/Home"
+        render={() => (
+          <React.Fragement>
+            <Header />
+            <Login />
+          </React.Fragement>
+        )}
+      />
+
+      <Route
+        path="/WishList"
+        render={() => (
+          <React.Fragment>
+            <WishList name={name} />
+          </React.Fragment>
+        )}
+      />
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
