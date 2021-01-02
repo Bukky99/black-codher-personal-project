@@ -1,11 +1,8 @@
-import React from "react";
+import axios from "axios";
 
-const Trainer = () => {
-  return (
-    <div>
-      <h1>The first shoe</h1>
-    </div>
-  );
+export default {
+  getAll: async () => {
+    const res = await axios.get(`/api/trainer`);
+    return res.data || [];
+  },
 };
-
-export default Trainer;

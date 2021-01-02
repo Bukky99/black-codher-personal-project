@@ -2,14 +2,17 @@ import React, { useState } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./Components/Header";
-import Trainer from "./Components/Trainer";
+//import Trainer from "./Components/Trainer";
 import WishList from "./Pages/WishList";
 import Login from "./Pages/Login";
+import Search from "./Components/Search";
 
 // SERVICES
 
 const App = () => {
   const [name, setName] = useState("Bukky");
+  const [shoes, setShoes] = useState(null);
+
   return (
     <BrowserRouter>
       <Route
@@ -37,6 +40,15 @@ const App = () => {
         render={() => (
           <React.Fragment>
             <WishList name={name} />
+          </React.Fragment>
+        )}
+      />
+
+      <Route
+        path="/sneakerSearch"
+        render={() => (
+          <React.Fragment>
+            <Search />
           </React.Fragment>
         )}
       />

@@ -1,10 +1,23 @@
-const mongoose = required("mongoose");
+const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const userSchema = new Schema({
-  shoeName: String,
-  shoeBrand: String,
-  releaseDate: String,
+const seasonalShoeSchema = new Schema({
+  shoeName: {
+    type: String,
+  },
+  shoeBrand: {
+    type: String,
+  },
+  releaseDate: {
+    type: String,
+  },
+
+  tag: {
+    type: [String],
+  },
+  price: {
+    type: Number,
+  },
 });
 
-mongoose.model("seasonal-releases", userSchema);
+mongoose.model("seasonal-releases", seasonalShoeSchema);

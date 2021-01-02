@@ -4,7 +4,8 @@
         "shoeBrand": "Air Jordan",
         "shoeType": "Air Jordan 6",
         "releaseDate": "25/11/2020",
-        "tags": "Black, Burgundy, Jordan, 6",
+        "image": "https://sneakernews.com/wp-content/uploads/2019/08/jordan-6-singles-day-DB9818-001-2.jpg?w=1140",
+        "tags": ["Black, Burgundy, Jordan, 6"],
         "price": {
             "retailPrice": {
                 "amount": 170,
@@ -12,6 +13,24 @@
             },
             "resalePrice": {
                 "amount": 300,
+                "currencyCode": "GBP"
+            }
+        }
+    },
+
+    {
+        "shoeName": "Fire Red",
+        "shoeBrand": "Air Jordan",
+        "shoeType": "Air Jordan 4",
+        "releaseDate": "28/11/2020",
+        "tags": ["White", "Fire Red", "Black", "Tech Grey", "Grey", "Jordan", "4"],
+        "price": {
+            "resalePrice": {
+                "amount": 170,
+                "currencyCode": "GBP"
+            },
+            "retailPrice": {
+                "amount": 200,
                 "currencyCode": "GBP"
             }
         }

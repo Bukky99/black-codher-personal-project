@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
 // IMPORT YOUR MODELS
-require("./models/Users");
+require("./models/TrainersDB");
 
 const app = express();
 
@@ -19,9 +19,9 @@ mongoose.connect(
 );
 
 app.use(bodyParser.json());
-
+//this is old-fashioned
 // IMPORT YOUR ROUTES
-require("./routes/usersRoutes")(app);
+require("./routes/trainersRoutes")(app);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
