@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 //import data from "./models/trainers.json";
 import "./App.css";
-import Header from "./Components/Header";
+import Navbar from "./Components/Navbar";
 //import Trainer from "./Components/Trainer";
 import WishList from "./Pages/WishList";
 import Login from "./Pages/Login";
@@ -20,28 +20,27 @@ const App = () => {
         path="/"
         render={() => (
           <React.Fragment>
-            <Header />
+            <Navbar />
+            <Login />
           </React.Fragment>
         )}
       />
 
-      <Route
+      {/*<Route
         exact
         path="/Home"
         render={() => (
           <React.Fragement>
-            <Header />
+            <Navbar />
             <Login />
           </React.Fragement>
         )}
-      />
+        />*/}
 
       <Route
         path="/WishList"
         render={() => (
-          <React.Fragment>
-            <WishList name={name} />
-          </React.Fragment>
+          <React.Fragment>{/*<WishList name={name} />*/}</React.Fragment>
         )}
       />
 
@@ -50,6 +49,15 @@ const App = () => {
         render={() => (
           <React.Fragment>
             <Search />
+          </React.Fragment>
+        )}
+      />
+
+      <Route
+        path="/login"
+        render={() => (
+          <React.Fragment>
+            <Login />
           </React.Fragment>
         )}
       />
