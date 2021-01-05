@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Trainer = mongoose.model("seasonal-releases");
-console.log(Trainer.find());
+//console.log(Trainer.find());
 //const querystring = require("querystring");
 //const url = "http://localhost:3000/api/trainers?q=jordan";
 
@@ -22,17 +22,18 @@ module.exports = (app) => {
   });*/
 
   app.get(`/api/trainer`, async (req, res) => {
-    const shoeBrand = req.query.shoeBrand;
+    const data = req.query.shoeInfo;
 
-    console.log(shoeBrand);
+    console.log(data);
 
-    const result = await Trainer.find({ shoeBrand: new RegExp(shoeBrand) });
+    const result = await Trainer.find({ "shoeInfo.brand": "Air Jordan" });
     console.log(result);
 
     res.json({
-      message: "Here are your searched shoes....",
-      trainers: result.map((t) => ({
-        x: t.shoeBrand,
+      message: "Here is your searched shoe....",
+      shoeInfo: result,
+      shoeBrand: result.map((t) => ({
+        x: t.shoeInfo.brand,
       })),
     });
   });

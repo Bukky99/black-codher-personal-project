@@ -2,6 +2,7 @@
 import "./Search.css";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+//import data from "/server/models/trainers.json";
 
 // export default function Parent () {
 //     const [shoes, getShoes] = useState('');
@@ -35,19 +36,17 @@ const Search = (props) => {
   return (
     <div>
       <p className="searchbar">
-        <h1>Jordan Shoes</h1>
-        <h2>Fetch a list of Nike Shoes from API and display it</h2>
-        <label for="shoe-search">Search for your shoes:</label>
+        <h1>Trainers Release in 2020</h1>
+        <h2>Fetch a list of Nike Shoes from an API and display it</h2>
+        {/*<label for="shoe-search">Search for your shoes:</label>*/}
+        {/* Fetch data from API */}
         <input type="search" id="shoe-search"></input>
-        <button
-          className="fetch-button"
-          //when button click, fetch, update state with data...
-          onClick={fetchData}
-        >
-          Search For Shoes
+        <button className="fetch-button" onClick={fetchData}>
+          Fetch Shoe
         </button>
       </p>
-      <p className="shoe"></p>
+      {/* Displays data from API */}
+      {/*<p className="shoes">{shoeInfo && shoes.map()}</p>*/}
     </div>
   );
 };

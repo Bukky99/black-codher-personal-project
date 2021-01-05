@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
+//import data from "./models/trainers.json";
 import "./App.css";
 import Header from "./Components/Header";
 //import Trainer from "./Components/Trainer";
