@@ -35,7 +35,7 @@ const Search = (props) => {
   };
   return (
     <div>
-      <p className="searchbar">
+      <p className="container">
         <h1>Trainers Release in 2020</h1>
         <h2>Fetch a list of Nike Shoes from an API and display it</h2>
         {/*<label for="shoe-search">Search for your shoes:</label>*/}

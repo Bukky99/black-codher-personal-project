@@ -3,10 +3,12 @@ import { BrowserRouter, Route } from "react-router-dom";
 //import data from "./models/trainers.json";
 import "./App.css";
 import Navbar from "./Components/Navbar";
+import Home from "./Pages/Home";
+import About from "./Pages/About";
 //import Trainer from "./Components/Trainer";
 import WishList from "./Pages/WishList";
-import Login from "./Pages/Login";
 import Search from "./Components/Search";
+import Login from "./Pages/Login";
 
 // SERVICES
 
@@ -16,31 +18,33 @@ const App = () => {
 
   return (
     <BrowserRouter>
+      <Navbar />
       <Route
         path="/"
+        exact
         render={() => (
           <React.Fragment>
-            <Navbar />
-            <Login />
+            <Home />
+            {/*<Login />*/}
           </React.Fragment>
         )}
       />
 
-      {/*<Route
-        exact
-        path="/Home"
+      <Route
+        path="/about"
         render={() => (
           <React.Fragement>
-            <Navbar />
-            <Login />
+            <About />
           </React.Fragement>
         )}
-        />*/}
+      />
 
       <Route
-        path="/WishList"
+        path="/wishList"
         render={() => (
-          <React.Fragment>{/*<WishList name={name} />*/}</React.Fragment>
+          <React.Fragment>
+            <WishList />
+          </React.Fragment>
         )}
       />
 
