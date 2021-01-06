@@ -1,15 +1,23 @@
 //routues to access different parts of web app
 
 const mongoose = require("mongoose");
-const User = mongoose.model("users");
+const Request = mongoose.model("requests");
 
 module.exports = (app) => {
-  app.get(`/api/user`, async (req, res) => {
-    const persons = await User.find();
-    return res.status(200).send(persons);
+  app.post("/request", async (req, res) => {
+    const username = req.body.username;
+    const description = req.body.description;
+    const newRequest = new Request({
+      username,
+      description,
+    });
+    console.log(req.body.username);
+    newRequest.save();
+    //return res.status(200).send(persons);
   });
 
-  app.post(`/api/user`, async (req, res) => {
+  {
+    /*app.post(`/api/user`, async (req, res) => {
     const user = await User.create(req.body);
     return res.status(201).send({
       error: false,
@@ -37,5 +45,6 @@ module.exports = (app) => {
       error: false,
       user,
     });
-  });
+  });*/
+  }
 };

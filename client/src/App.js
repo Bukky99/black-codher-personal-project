@@ -33,9 +33,9 @@ const App = () => {
       <Route
         path="/about"
         render={() => (
-          <React.Fragement>
+          <React.Fragment>
             <About />
-          </React.Fragement>
+          </React.Fragment>
         )}
       />
 

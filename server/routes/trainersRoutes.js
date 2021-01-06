@@ -31,10 +31,7 @@ module.exports = (app) => {
 
     res.json({
       message: "Here is your searched shoe....",
-      shoeInfo: result,
-      shoeBrand: result.map((t) => ({
-        x: t.shoeInfo.brand,
-      })),
+      shoes: result,
     });
   });
 

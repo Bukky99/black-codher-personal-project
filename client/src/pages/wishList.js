@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./WishList.css";
+import axios from "axios";
 
 const WishList = (props) => {
   console.log(props);
@@ -23,7 +24,11 @@ const WishList = (props) => {
 
   function handleClick(event) {
     event.preventDefault();
-    console.log(input);
+    const newRequest = {
+      username: input.username,
+      description: input.description,
+    };
+    axios.post("http://localhost:5000/request", newRequest);
   }
 
   return (
@@ -40,7 +45,7 @@ const WishList = (props) => {
             value={input.username}
             autoComplete="off"
             className="form-control"
-            placeholder="Username/Email"
+            placeholder="Username"
           ></input>
         </div>
         {/*User can request to get more info from a shoe if not on the website which will send into database*/}
