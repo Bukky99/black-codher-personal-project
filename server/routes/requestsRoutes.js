@@ -4,14 +4,14 @@ const mongoose = require("mongoose");
 const Request = mongoose.model("requests");
 
 module.exports = (app) => {
-  app.post("/request", async (req, res) => {
+  app.post("/api/request", async (req, res) => {
     const username = req.body.username;
     const description = req.body.description;
     const newRequest = new Request({
       username,
       description,
     });
-    console.log(req.body.username);
+    //console.log(newRequest);
     newRequest.save();
     //return res.status(200).send(persons);
   });

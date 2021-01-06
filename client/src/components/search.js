@@ -33,8 +33,8 @@ const Search = (props) => {
     const response = await axios.get(apiUrl);
 
     setMessage(response.data.message);
-    setShoes(response.data);
-    console.log(response.data);
+    setShoes(response.data.shoes);
+    console.log(response.data.shoes);
   };
   return (
     <div>

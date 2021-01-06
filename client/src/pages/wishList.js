@@ -28,7 +28,7 @@ const WishList = (props) => {
       username: input.username,
       description: input.description,
     };
-    axios.post("http://localhost:5000/request", newRequest);
+    axios.post("http://localhost:5000/api/request", newRequest);
   }
 
   return (
