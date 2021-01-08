@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./WishList.css";
 import axios from "axios";
+//import {Form, Button, Card} from "react-bootstrap";
 
 const WishList = (props) => {
   console.log(props);
@@ -36,7 +37,7 @@ const WishList = (props) => {
       <h1>Create Wish List Page</h1>
       {/*<h1> {props.name}'s Sneaker Wish List!</h1>*/}
       {/*form to go at bottom of page */}
-      <label>Add shoes you would like to get nore information about:</label>
+      <label>Request shoes you would like to get more information about:</label>
       <form>
         <div className="form-group">
           <input

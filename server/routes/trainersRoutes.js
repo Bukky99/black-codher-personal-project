@@ -26,7 +26,7 @@ module.exports = (app) => {
 
     console.log(data);
 
-    const result = await Trainer.find({ "shoeInfo.brand": "Air Jordan" });
+    const result = await Trainer.find({});
     console.log(result);
 
     res.json({
@@ -35,11 +35,17 @@ module.exports = (app) => {
     });
   });
 
-  app.post(`/api/trainer`, async (req, res) => {
+  // app.post(`/api/trainer`, async (req, res) => {
+  //   Trainer.find().then((foundShoe) => res.json(foundShoe));
+  // });
+
+  {
+    /*app.post(`/api/trainer`, async (req, res) => {
     const shoes = await Trainer.create(req.body);
     return res.status(201).send({
       error: false,
       shoes,
     });
-  });
+  });*/
+  }
 };
