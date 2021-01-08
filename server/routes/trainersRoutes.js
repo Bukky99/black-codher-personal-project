@@ -21,14 +21,11 @@ module.exports = (app) => {
     res.json("trainer");
   });*/
 
-  app.get(`/api/trainer`, async (req, res) => {
-    const data = req.query.shoeInfo;
-
-    console.log(data);
-
-    const result = await Trainer.find({});
+  app.get("/api/trainer", async (req, res) => {
+    const query = req.query.q;
+    console.log("Q =", query);
+    const result = await Trainer.find({ tags: query });
     console.log(result);
-
     res.json({
       message: "Here is your searched shoe....",
       shoes: result,

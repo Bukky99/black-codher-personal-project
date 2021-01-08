@@ -4,7 +4,7 @@ import axios from "axios";
 //import {Form, Button, Card} from "react-bootstrap";
 
 const WishList = (props) => {
-  console.log(props);
+  //console.log(props);
 
   //object tracking two fields, username & description
   const [input, setInput] = useState({

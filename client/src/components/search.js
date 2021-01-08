@@ -2,67 +2,26 @@
 import "./Search.css";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { query } from "express";
 
 const Search = () => {
-  const [search, setSearch] = useState({
-    query: "",
-  });
+  const [query, setQuery] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  // const cancelTokenSource = axios.CancelToken.source();
   const [shoes, setShoes] = useState([]);
   const [message, setMessage] = useState("Testing!");
-  const apiUrl = `http://localhost:3000/api/trainer?q=${query}$`;
 
   const fetchData = async () => {
+    const apiUrl = `http://localhost:3000/api/trainer?q=${query}`;
     const response = await axios.get(apiUrl);
-
     setMessage(response.data.message);
     setShoes(response.data.shoes);
-    console.log(response.data.shoes);
   };
 
-  // const fetchSearchResults = async (updatedPageNo = "", query) => {
-  //   // const pageNumber = updatedPageNo ? `&page=4${updatedPageNo}` : "";
-  //   const response = await axios.get(apiUrl);
-
-  //   if (cancelTokenSource) {
-  //     cancelTokenSource.cancel();
-  //   }
-
-  //   axios.get(apiUrl, {
-  //     cancelToken: cancelTokenSource.token,
-  //   });
-
-  //   cancelTokenSource.cancel().then((response) => {
-  //     const resultNotFoundMsg = "nothing";
-  //     console.log(response);
-  //   });
-  // };
-
+  console.log(query);
   function handleChange(event) {
     event.preventDefault();
-    const { name, value } = event.target;
-
-    setSearch((prevSearch) => {
-      return {
-        ...prevSearch,
-        [name]: value,
-        loading: true,
-      };
-    });
-    console.log(search);
+    setQuery(event.target.value);
   }
-
-  // useEffect(() => {
-  //   fetch("/api/trainer")
-  //     .then((res) => {
-  //       if (res.ok) {
-  //         return res.json();
-  //       }
-  //     })
-  //     .then((jsonRes) => setShoe(jsonRes));
-  // });
 
   return (
     <div>
@@ -76,7 +35,7 @@ const Search = () => {
         <input
           type="search"
           name="query"
-          value={search.query}
+          value={query}
           id="shoe-search"
           placeholder="Search..."
           onChange={handleChange}
@@ -90,13 +49,9 @@ const Search = () => {
       <p>
         {shoes.map((shoe) => (
           <div className="shoeInfo">
-            <h1>{shoe.shoeInfo.name}</h1>
-            <p>{shoe.shoeInfo.brand}</p>
-            <img
-              className="shoeImg"
-              src={shoe.shoeInfo.imageLink}
-              alt="a shoe"
-            />
+            <h1>{shoe.name}</h1>
+            <p>{shoe.brand}</p>
+            <img className="shoeImg" src={shoe.imageLink} alt="a shoe" />
           </div>
         ))}
       </p>

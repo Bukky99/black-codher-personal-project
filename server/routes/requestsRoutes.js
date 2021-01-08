@@ -11,7 +11,7 @@ module.exports = (app) => {
       username,
       description,
     });
-    //console.log(newRequest);
+    console.log(newRequest);
     newRequest.save();
     //return res.status(200).send(persons);
   });
