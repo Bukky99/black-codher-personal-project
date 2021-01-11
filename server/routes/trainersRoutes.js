@@ -5,22 +5,6 @@ const Trainer = mongoose.model("seasonal-releases");
 //const url = "http://localhost:3000/api/trainers?q=jordan";
 
 module.exports = (app) => {
-  /*app.get(`/api/trainer`, async (req, res) => {
-    const shoes = await Trainer.find({ shoeName: "Singles Day" });
-    return res.status(200).send(shoes);
-  });*
-  //map through here!
-
-  /*app.get("/api/trainer/", function (req, res) {
-    console.log(req.query);
-    res.render("trainer");
-  });*/
-
-  /*app.get(`/api/trainer`, function (req, res) {
-    console.log(req.query);
-    res.json("trainer");
-  });*/
-
   app.get("/api/trainer", async (req, res) => {
     const query = req.query.q;
     console.log("Q =", query);
@@ -31,18 +15,4 @@ module.exports = (app) => {
       shoes: result,
     });
   });
-
-  // app.post(`/api/trainer`, async (req, res) => {
-  //   Trainer.find().then((foundShoe) => res.json(foundShoe));
-  // });
-
-  {
-    /*app.post(`/api/trainer`, async (req, res) => {
-    const shoes = await Trainer.create(req.body);
-    return res.status(201).send({
-      error: false,
-      shoes,
-    });
-  });*/
-  }
 };

@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 
 const Search = () => {
   const [query, setQuery] = useState("");
-  const [loading, setLoading] = useState(false);
+  //const [loading, setLoading] = useState(false);
 
   const [shoes, setShoes] = useState([]);
   const [message, setMessage] = useState("Testing!");
@@ -41,7 +41,7 @@ const Search = () => {
           onChange={handleChange}
         ></input>
         <button className="fetch-button" onClick={fetchData}>
-          Fetch Shoe
+          Find Sneaker
         </button>
         <p>{message}</p>
       </div>
@@ -50,8 +50,12 @@ const Search = () => {
         {shoes.map((shoe) => (
           <div className="shoeInfo">
             <h1>{shoe.name}</h1>
-            <p>{shoe.brand}</p>
             <img className="shoeImg" src={shoe.imageLink} alt="a shoe" />
+            <p>Release Date: {shoe.releaseDate}</p>
+            <p>Brand: {shoe.brand}</p>
+            <p>
+              Price: {shoe.retailPrice.currencyCode} {shoe.retailPrice.amount}
+            </p>
           </div>
         ))}
       </p>
