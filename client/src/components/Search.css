@@ -10,5 +10,32 @@ label {
 
 .shoeImg {
   height: 250px;
-  width: 250px;
+  width: 400px;
+}
+
+.shoeName {
+  text-decoration: underline;
+}
+
+/* .searchBar {
+  margin-left: auto;
+  margin-right: auto;
+  width: 30em;
+} */
+.shoeInfo {
+  margin-left: auto;
+  margin-right: auto;
+  width: 30em;
+}
+
+/* .fas fa-search {
+  margin-left: auto;
+  margin-right: auto;
+  width: 30em;
+} */
+
+.fetch-button {
+  margin-left: auto;
+  margin-right: auto;
+  width: 30em;
 }

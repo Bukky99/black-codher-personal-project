@@ -36,10 +36,11 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-app.get("/", (req, res) => {
+app.get("/", function (req, res) {
   res.status(200).send("working");
 });
 
+// using an environment variable to grab port
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`app running on port ${PORT}`);

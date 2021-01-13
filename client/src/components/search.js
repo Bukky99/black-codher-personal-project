@@ -26,13 +26,14 @@ const Search = () => {
   return (
     <div>
       <div className="container">
-        <h1>Trainers Release in 2020</h1>
+        {/*<h1>Trainers Release in 2020</h1>8*/}
         {/*shoes.map(shoe)*/}
-        <h2>Fetch a list of Nike Shoes from an API and display it</h2>
+        {/*<h2>Fetch a list of Nike Shoes from an API and display it</h2>*/}
         <label for="shoe-search">Search for your shoes:</label>
         {/* Fetch data from API */}
         <i className="fas fa-search" />
         <input
+          className="searchBar"
           type="search"
           name="query"
           value={query}
@@ -49,7 +50,7 @@ const Search = () => {
       <p>
         {shoes.map((shoe) => (
           <div className="shoeInfo">
-            <h1>{shoe.name}</h1>
+            <h1 className="shoeName">{shoe.name}</h1>
             <img className="shoeImg" src={shoe.imageLink} alt="a shoe" />
             <p>Release Date: {shoe.releaseDate}</p>
             <p>Brand: {shoe.brand}</p>
