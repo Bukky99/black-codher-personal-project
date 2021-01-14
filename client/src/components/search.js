@@ -5,7 +5,6 @@ import React, { useEffect, useState } from "react";
 
 const Search = () => {
   const [query, setQuery] = useState("");
-  //const [loading, setLoading] = useState(false);
 
   const [shoes, setShoes] = useState([]);
   const [message, setMessage] = useState("Testing!");
@@ -18,10 +17,22 @@ const Search = () => {
   };
 
   console.log(query);
-  function handleChange(event) {
+  const handleChange = async (event) => {
     event.preventDefault();
     setQuery(event.target.value);
-  }
+    const apiUrl = `http://localhost:3000/api/trainer?q=${event.target.value}`;
+    const response = await axios.get(apiUrl);
+    setMessage(response.data.message);
+    setShoes(response.data.shoes);
+  };
+
+  const handleAdd = (event) => {
+    console.log(event.target.id);
+    const foundShoe = shoes.find((shoe) => event.target.id === shoe._id);
+    console.log(shoes.find((shoe) => event.target.id === shoe._id));
+    const myStorage = window.localStorage;
+    myStorage.setItem("wishList", JSON.stringify(foundShoe));
+  };
 
   return (
     <div>
@@ -29,7 +40,7 @@ const Search = () => {
         {/*<h1>Trainers Release in 2020</h1>8*/}
         {/*shoes.map(shoe)*/}
         {/*<h2>Fetch a list of Nike Shoes from an API and display it</h2>*/}
-        <label for="shoe-search">Search for your shoes:</label>
+        <label className="shoe-search">Search for your shoes:</label>
         {/* Fetch data from API */}
         <i className="fas fa-search" />
         <input
@@ -41,25 +52,28 @@ const Search = () => {
           placeholder="Search..."
           onChange={handleChange}
         ></input>
-        <button className="fetch-button" onClick={fetchData}>
+        {/* {/* <button className="fetch-button" onClick={fetchData}>
+          live serach instead of button 
           Find Sneaker
-        </button>
+        </button> */}
         <p>{message}</p>
       </div>
       {/* Displays data from API */}
-      <p>
-        {shoes.map((shoe) => (
-          <div className="shoeInfo">
-            <h1 className="shoeName">{shoe.name}</h1>
-            <img className="shoeImg" src={shoe.imageLink} alt="a shoe" />
-            <p>Release Date: {shoe.releaseDate}</p>
-            <p>Brand: {shoe.brand}</p>
-            <p>
-              Price: {shoe.retailPrice.currencyCode} {shoe.retailPrice.amount}
-            </p>
-          </div>
-        ))}
-      </p>
+
+      {shoes.map((shoe) => (
+        <div className="shoeInfo" key={shoe._id}>
+          <h1 className="shoeName">{shoe.name}</h1>
+          <img className="shoeImg" src={shoe.imageLink} alt="a shoe" />
+          <p>Release Date: {shoe.releaseDate}</p>
+          <p>Brand: {shoe.brand}</p>
+          <p>
+            Price: {shoe.retailPrice.currencyCode} {shoe.retailPrice.amount}
+          </p>
+          <button id={shoe._id} type="button" onClick={handleAdd}>
+            Add
+          </button>
+        </div>
+      ))}
     </div>
   );
 };

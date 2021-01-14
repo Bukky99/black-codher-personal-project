@@ -62,6 +62,7 @@ const App = () => {
         render={() => (
           <React.Fragment>
             <Login />
+            {/*<WishList />*/}
           </React.Fragment>
         )}
       />
