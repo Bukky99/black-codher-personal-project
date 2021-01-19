@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 //information retrived from the wishlist
 const requestSchema = new Schema({
-  username: String,
+  email: String,
   description: String,
 });
 

@@ -1,11 +1,17 @@
 import React from "react";
+import "./Home.css";
+
 //import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="container">
-      <h1>Create Home Page</h1>
-      <p>This bit of text here is used for testing!</p>
+    <div
+      className="container"
+      styles={{
+        backgroundImage: "url(' = require (..images/homeBg.png')+ ')",
+      }}
+    >
+      <h1 className="homeTitle">Find Your Sneakers!</h1>
     </div>
   );
 };

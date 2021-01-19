@@ -4,7 +4,7 @@ import "./Navbar.css";
 
 const Navbar = (props) => {
   return (
-    <div className="navbar bg-dark container">
+    <div className="navbar navbar-dark bg-dark">
       <Link className="link" to="/">
         Home{" "}
       </Link>

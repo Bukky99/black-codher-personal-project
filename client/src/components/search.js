@@ -32,6 +32,7 @@ const Search = () => {
     console.log(shoes.find((shoe) => event.target.id === shoe._id));
     const myStorage = window.localStorage;
     myStorage.setItem("wishList", JSON.stringify(foundShoe));
+    myStorage.getItem("wishList");
   };
 
   return (
@@ -40,7 +41,7 @@ const Search = () => {
         {/*<h1>Trainers Release in 2020</h1>8*/}
         {/*shoes.map(shoe)*/}
         {/*<h2>Fetch a list of Nike Shoes from an API and display it</h2>*/}
-        <label className="shoe-search">Search for your shoes:</label>
+        <label className="shoe-search">Search for your Sneaker:</label>
         {/* Fetch data from API */}
         <i className="fas fa-search" />
         <input
@@ -69,7 +70,12 @@ const Search = () => {
           <p>
             Price: {shoe.retailPrice.currencyCode} {shoe.retailPrice.amount}
           </p>
-          <button id={shoe._id} type="button" onClick={handleAdd}>
+          <button
+            className="addBtn"
+            id={shoe._id}
+            type="button"
+            onClick={handleAdd}
+          >
             Add
           </button>
         </div>

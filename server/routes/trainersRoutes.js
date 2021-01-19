@@ -11,7 +11,7 @@ module.exports = (app) => {
     const result = await Trainer.find({ tags: query });
     console.log(result);
     res.json({
-      message: "Here is your searched shoe....",
+      message: "Here are your searched sneakers...",
       shoes: result,
     });
   });

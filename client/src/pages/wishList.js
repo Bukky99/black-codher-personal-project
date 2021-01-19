@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./WishList.css";
 import axios from "axios";
 //import {Form, Button, Card} from "react-bootstrap";
 
 const WishList = (props) => {
-  //console.log(props);
+  const [wishList, setWishList] = useState([]);
 
   //object tracking two fields, username & description
   const [input, setInput] = useState({
-    username: "",
+    email: "",
     description: "",
   });
 
@@ -26,29 +26,43 @@ const WishList = (props) => {
   function handleClick(event) {
     event.preventDefault();
     const newRequest = {
-      username: input.username,
+      email: input.email,
       description: input.description,
     };
     axios.post("http://localhost:5000/api/request", newRequest);
   }
+
+  useEffect(() => {
+    const myStorage = window.localStorage;
+    const foundShoe = myStorage.getItem("wishList");
+    console.log(foundShoe);
+    setWishList(JSON.parse(foundShoe));
+    console.log(setWishList(foundShoe));
+  }, []);
 
   return (
     <div className="container">
       <h1>Create Wish List Page</h1>
       {/*<h1> {props.name}'s Sneaker Wish List!</h1>*/}
       {/*form to go at bottom of page */}
-      <label>Request shoes you would like to get more information about:</label>
+      <label>
+        <p>{wishList}</p>
+        <br></br>
+        <br></br>
+        Request sneakers you would like to get more information about:
+      </label>
       <form>
         <div className="form-group">
           <input
             onChange={handleChange}
-            name="username"
-            value={input.username}
+            name="email"
+            value={input.email}
             autoComplete="off"
             className="form-control"
-            placeholder="Username"
+            placeholder="Email"
           ></input>
         </div>
+
         {/*User can request to get more info from a shoe if not on the website which will send into database*/}
         {/*User sends form which is attached to thier account*/}
         <div className="form-group">
@@ -62,7 +76,7 @@ const WishList = (props) => {
           ></textarea>
         </div>
         <button onClick={handleClick} className="btn btn-lg btn-info">
-          Request Shoe Info{" "}
+          Request Sneaker Info{" "}
         </button>
       </form>
     </div>

@@ -5,10 +5,10 @@ const Request = mongoose.model("requests");
 
 module.exports = (app) => {
   app.post("/api/request", async (req, res) => {
-    const username = req.body.username;
+    const email = req.body.email;
     const description = req.body.description;
     const newRequest = new Request({
-      username,
+      email,
       description,
     });
     console.log(newRequest);
