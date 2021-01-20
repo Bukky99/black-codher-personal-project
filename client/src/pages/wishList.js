@@ -5,6 +5,7 @@ import axios from "axios";
 
 const WishList = (props) => {
   const [wishList, setWishList] = useState([]);
+  const [,] = useState();
 
   //object tracking two fields, username & description
   const [input, setInput] = useState({
@@ -42,14 +43,16 @@ const WishList = (props) => {
 
   return (
     <div className="container">
-      <h1>Create Wish List Page</h1>
+      {/*<h1>Create Wish List Page</h1>*/}
       {/*<h1> {props.name}'s Sneaker Wish List!</h1>*/}
       {/*form to go at bottom of page */}
+      <p>{wishList}</p>
+
+      <br></br>
+      <p>Sneaker Count: </p>
       <label>
-        <p>{wishList}</p>
         <br></br>
-        <br></br>
-        Request sneakers you would like to get more information about:
+        <b>Request sneakers you would like to get more information about:</b>
       </label>
       <form>
         <div className="form-group">

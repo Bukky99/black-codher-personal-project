@@ -16,7 +16,7 @@ const Search = () => {
     setShoes(response.data.shoes);
   };
 
-  console.log(query);
+  //console.log(query);
   const handleChange = async (event) => {
     event.preventDefault();
     setQuery(event.target.value);
@@ -27,12 +27,47 @@ const Search = () => {
   };
 
   const handleAdd = (event) => {
-    console.log(event.target.id);
-    const foundShoe = shoes.find((shoe) => event.target.id === shoe._id);
-    console.log(shoes.find((shoe) => event.target.id === shoe._id));
+    //console.log(event.target.id);
+    let foundShoe = shoes.find((shoe) => event.target.id === shoe._id);
+    //console.log(shoes.find((shoe) => event.target.id === shoe._id));
+
+    //local storage variable
     const myStorage = window.localStorage;
-    myStorage.setItem("wishList", JSON.stringify(foundShoe));
-    myStorage.getItem("wishList");
+    let foundShoeArray = JSON.parse(myStorage.getItem("wishList"));
+    if (foundShoeArray === null) {
+      foundShoeArray = [];
+    }
+
+    //set foundShoeArray(value) to wishList(key)
+    myStorage.setItem("wishList", JSON.stringify(foundShoeArray));
+
+    //get data from local stoarge
+    //const getMyStorage = JSON.parse(myStorage.getItem("wishList"));
+    //console.log(getMyStorage);
+
+    //store item in array
+    foundShoeArray.push(foundShoe);
+
+    //removes from local storage
+    // const removeMyStorage = () => {
+    //   if (myStorage.getItem("wishList") == null) {
+    //     myStorage.getItem("wishList");
+    //   }
+    //   setShoes(removeMyStorage);
+    //   console.log(setShoes(removeMyStorage));
+    //   // foundShoeArray = [...foundShoeArray, ...removeMyStorage];
+    // };
+    myStorage.setItem("wishList", JSON.stringify(foundShoeArray));
+
+    console.log(foundShoeArray);
+
+    // console.log(foundShoeArray.push(getMyStorage));
+    // if no array,an empty array is created
+    // if (myStorage == null) {
+    //   foundShoeArray = [];
+    // }
+
+    //foundShoeArray.push(JSON.parse(myStorage.getItem("wishList")));
   };
 
   return (
